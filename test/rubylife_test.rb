@@ -17,9 +17,11 @@ class RubylifeTest < MiniTest::Unit::TestCase
   end
 
   def test_display_prints_world_as_string
+    game = Rubylife.new
+    world = World.new(5,3)
     assert true, (
     ". . . . .\n. . . . .\n. . . . .\n" ==
-    World.new(5,3).display)
+    game.display(world.world))
   end
 
   def test_toggle_changes_correct_cell_with_coords
@@ -51,17 +53,39 @@ class RubylifeTest < MiniTest::Unit::TestCase
     )
   end
 
-  # def test_successive_toggles_work
+  def test_step_applies_rules_and_generates_next_step
+    world3 = World.new(3,4)
+    world3.step
+    assert_equal(
+    [
+      [ ".", ".", "."],
+      [ ".", "@", "."],
+      [ ".", ".", "."],
+      [ ".", ".", "."] ],
+    world3.world)
+    world3.step
+    assert_equal(
+    [
+      [ ".", ".", "."],
+      [ ".", ".", "."],
+      [ ".", ".", "."],
+      [ ".", ".", "."] ],
+    world3.world)
+  end
+
+  # def test_killall_rule_kills_all_live_cells
+  #   world4 = World.new(3,4)
+  #   world4.toggle(1,1)
+  #   world4.toggle(2,2)
+  #   world4.step
+  #   assert_equal(
+  #   [
+  #     [ ".", ".", "."],
+  #     [ ".", ".", "."],
+  #     [ ".", ".", "."],
+  #     [ ".", ".", "."] ],
+  #     world3.world
+  #   )
   # end
-
-  # def test_can_return_a_cell_with_coorinates
-  #   world = [
-  #     [ ".", ".", "."],
-  #     [ ".", ".", "@"],
-  #     [ ".", ".", "."],
-  #     [ ".", ".", "."]
-  #   ]
-  #   assert_equal "@",
-
 
 end

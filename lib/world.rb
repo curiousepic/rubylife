@@ -1,4 +1,5 @@
 require 'pry'
+require_relative 'rules'
 
 class World
   attr_reader :world, :width, :height
@@ -7,16 +8,22 @@ class World
     @width = width
     @height = height
     @world = Array.new(height, ".").map!{ Array.new(width, ".") }
+    ## old method that had interesting problem:
     # @width = x
     # @height = y
     # row = []
     # @world = []
     # x.times { row << "." }
-    # y.times { @world << y.times  }
+    # y.times { @world << y.times }
   end
 
-  def display
-    puts @world.map {|row| row.join(" ")}.join("\n")
+  def step
+    # apply all rules
+    dummy_rule
+    # second_rule
+
+    # return new world state
+    @world
   end
 
   def toggle(x, y)
@@ -26,4 +33,9 @@ class World
       @world[y][x] = "."
     end
   end
+
+  def dummy_rule
+    toggle(1,1)
+  end
+
 end
