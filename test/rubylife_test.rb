@@ -73,19 +73,8 @@ class RubylifeTest < MiniTest::Unit::TestCase
     world3.world)
   end
 
-  # def test_killall_rule_kills_all_live_cells
-  #   world4 = World.new(3,4)
-  #   world4.toggle(1,1)
-  #   world4.toggle(2,2)
-  #   world4.step
-  #   assert_equal(
-  #   [
-  #     [ ".", ".", "."],
-  #     [ ".", ".", "."],
-  #     [ ".", ".", "."],
-  #     [ ".", ".", "."] ],
-  #     world3.world
-  #   )
-  # end
+  def test
+
+  end
 
 end
