@@ -1,4 +1,4 @@
-require "world"
+require_relative "world"
 
 class Rubylife
   def run
