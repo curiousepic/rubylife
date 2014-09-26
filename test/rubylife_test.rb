@@ -73,8 +73,25 @@ class RubylifeTest < MiniTest::Unit::TestCase
     world3.world)
   end
 
-  def test
-
+  def test_step_
   end
+
+  # def test_2x1_cell_formations_die
+  #   world4 = World.new(5,5)
+  #   world4.rules.toggle(2,2, world4.world)
+  #   world4.rules.toggle(2,3, world4.world)
+  #   assert_equal world4.rules.first_rule,
+  #   World.new(5,5)
+  # end
+  #
+  # def test_2x2_cell_formations_live
+  #   world5 = World.new(5,5)
+  #   world5.rules.toggle(2,2, world5.world)
+  #   world5.rules.toggle(2,3, world5.world)
+  #   world5.rules.toggle(3,2, world5.world)
+  #   world5.rules.toggle(3,3, world5.world)
+  #   assert_equal world5.rules.first_rule,
+  #   world5.world
+  # end
 
 end
