@@ -14,7 +14,10 @@ class World
   def step
     # call all rules
     @rules.dummy_rule(@world)
-
+    # @rules.first_rule(@world)
+    # @rules.second_rule(@world)
+    # @rules.third_rule(@world)
+    # @rules.fourth_rule(@world)
     # apply result of all rules to be the new world
     @world = @rules.next_world
     @rules = Rules.new(@world)
