@@ -75,7 +75,26 @@ class RubylifeTest < MiniTest::Unit::TestCase
     world3.world)
   end
 
-  def test_step_
+  def test_count_neighbors_returns_correct_amount
+    rules = Rules.new([[".",".","."],[".",".","."],[".",".","."]])
+    assert ( 3 == rules.count_neighbors(1,1,
+    [[".","@","@"],["@",".","."],[".",".","."]]) )
+    assert ( 6 == rules.count_neighbors(1,1,
+    [[".","@","@"],[".",".","@"],["@","@","@"]]) )
+    assert ( 0 == rules.count_neighbors(1,1,
+    [[".",".","."],[".",".","."],[".",".","."]]) )
+
+  end
+
+  def test_count_neighbors_doesnt_break_near_world_edges
+    rules = Rules.new([[".",".","."],[".",".","."],[".",".","."]])
+    assert ( 2 == rules.count_neighbors(0,1,
+    [[".","@","@"],["@",".","."],[".",".","."]]) )
+    assert ( 5 == rules.count_neighbors(2,2,
+    [[".","@","@"],[".",".","@"],["@","@","@"]]) )
+    assert ( 0 == rules.count_neighbors(1,2,
+    [[".",".","."],[".",".","."],[".",".","."]]) )
+
   end
 
   # def test_2x1_cell_formations_die
