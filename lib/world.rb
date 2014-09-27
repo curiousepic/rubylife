@@ -7,15 +7,17 @@ class World
   def initialize(width, height)
     @width = width
     @height = height
-    @rules = Rules.new
     @world = Array.new(height, ".").map!{ Array.new(width, ".") }
+    @rules = Rules.new(@world)
   end
 
   def step
-    # apply all rules
-    @world = @rules.dummy_rule(@world)
-    # second_rule
-    @world
+    # call all rules
+    @rules.dummy_rule(@world)
+
+    # apply result of all rules to be the new world
+    @world = @rules.next_world
+    @rules = Rules.new(@world)
   end
 
 end
