@@ -83,18 +83,16 @@ class RubylifeTest < MiniTest::Unit::TestCase
     [[".","@","@"],[".",".","@"],["@","@","@"]]) )
     assert ( 0 == rules.count_neighbors(1,1,
     [[".",".","."],[".",".","."],[".",".","."]]) )
-
   end
 
   def test_count_neighbors_doesnt_break_near_world_edges
     rules = Rules.new([[".",".","."],[".",".","."],[".",".","."]])
-    assert ( 2 == rules.count_neighbors(0,1,
+    assert ( 2 == rules.count_neighbors(1,0,
     [[".","@","@"],["@",".","."],[".",".","."]]) )
-    assert ( 5 == rules.count_neighbors(2,2,
+    assert ( 4 == rules.count_neighbors(2,1,
     [[".","@","@"],[".",".","@"],["@","@","@"]]) )
     assert ( 0 == rules.count_neighbors(1,2,
     [[".",".","."],[".",".","."],[".",".","."]]) )
-
   end
 
   # def test_2x1_cell_formations_die
