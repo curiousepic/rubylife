@@ -75,10 +75,13 @@ class Rubylife
     c = input = (gets.to_i - 1)
     puts "Row?"
     r = (gets.to_i - 1)
-    puts "Choose formation: (G)lider"
+    puts "Choose formation: (G)lider, (S)paceship"
     input = gets.chomp.downcase
     if input == "g"
       create_glider(r,c)
+      run(@earth)
+    elsif input == "s"
+      create_spaceship(r,c)
       run(@earth)
     else
       puts "Invalid input"
@@ -92,6 +95,18 @@ class Rubylife
     @earth.toggle(r+2,c)
     @earth.toggle(r+2,c+1)
     @earth.toggle(r+2,c+2)
+  end
+
+  def create_spaceship(r,c)
+    @earth.toggle(r,c)
+    @earth.toggle(r+2,c)
+    @earth.toggle(r+3,c+1)
+    @earth.toggle(r+3,c+2)
+    @earth.toggle(r,c+3)
+    @earth.toggle(r+3,c+3)
+    @earth.toggle(r+3,c+4)
+    @earth.toggle(r+2,c+4)
+    @earth.toggle(r+1,c+4)
   end
 
   def quit
