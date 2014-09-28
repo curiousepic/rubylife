@@ -36,8 +36,13 @@ class Rubylife
       c = (gets.to_i - 1)
       puts "Row?"
       r = (gets.to_i - 1)
-      @earth.toggle(r,c)
-      run(world)
+      if r < 0 || c < 0 || r > @earth.height || c > @earth.width
+        puts "Invalid cell"
+        run(world)
+      else
+        @earth.toggle(r,c)
+        run(world)
+      end
     elsif input == "q"
       puts "Are you sure you want to quit? Y/N"
       confirm = gets.chomp.downcase
