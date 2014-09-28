@@ -15,7 +15,7 @@ class Rubylife
   end
 
   def get_input
-    puts "(Enter) to step, (T)oggle a cell, (N)ew world, (Q)uit"
+    puts "(Enter) to step, (T)oggle a cell, (I)nsert formation, (N)ew world, (Q)uit"
     input = gets.chomp.downcase
     if input == ""
       step_world
@@ -23,6 +23,8 @@ class Rubylife
       make_new_world
     elsif input == "t"
       toggle_cell
+    elsif input == "i"
+      insert_formation
     elsif input == "q"
       quit
     else
@@ -65,6 +67,31 @@ class Rubylife
       @earth.toggle(r,c)
       run(@earth)
     end
+  end
+
+  def insert_formation
+    puts "Give the top-left cell:"
+    puts "Column?"
+    c = input = (gets.to_i - 1)
+    puts "Row?"
+    r = (gets.to_i - 1)
+    puts "Choose formation: (G)lider"
+    input = gets.chomp.downcase
+    if input == "g"
+      create_glider(r,c)
+      run(@earth)
+    else
+      puts "Invalid input"
+      run(@earth)
+    end
+  end
+
+  def create_glider(r,c)
+    @earth.toggle(r,c+1)
+    @earth.toggle(r+1,c+2)
+    @earth.toggle(r+2,c)
+    @earth.toggle(r+2,c+1)
+    @earth.toggle(r+2,c+2)
   end
 
   def quit
