@@ -11,13 +11,20 @@ class Rubylife
   def run(world)
     display(@earth.world)
     puts "Generation: #{gen}"
-    puts "Hit Enter for next step, L to set live cells, N for new world, Q to quit"
+    puts "Hit Enter for next step, T to toggle cells, N for new world, Q to quit"
     input = gets.chomp.downcase
     if input == ""
       @gen += 1
       self.run(@earth.step)
     elsif input == "n"
       make_world
+    elsif input == "t"
+      puts "Row?"
+      r = gets.to_i
+      puts "Column?"
+      c = gets.to_i
+      @earth.toggle(r,c)
+      run(world)
     elsif input == "q"
       exit
     else
