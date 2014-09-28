@@ -8,13 +8,13 @@ class World
     @width = width
     @height = height
     @world = Array.new(height, ".").map!{ Array.new(width, ".") }
-    @rules = Rules.new(@world)
+    @rules = Rules.new(@width, @height)
   end
 
   def step
     @rules.conway(@world)
     @world = @rules.next_world
-    @rules = Rules.new(@world)
+    @rules = Rules.new(@width, @height)
   end
 
   def toggle(r,c)

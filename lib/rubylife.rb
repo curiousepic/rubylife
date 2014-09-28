@@ -2,6 +2,10 @@ require_relative "world"
 
 class Rubylife
   attr_accessor :earth, :gen
+  def initialize
+    make_world
+  end
+
   def make_world
     @earth = World.new(40,20)
     @gen = 0
@@ -12,6 +16,10 @@ class Rubylife
     display(@earth.world)
     puts "World Size: #{@earth.width}x#{@earth.height}  Generation: #{gen}"
     get_input
+  end
+
+  def display(world)
+    puts world.map {|row| row.join(" ")}.join("\n")
   end
 
   def get_input
@@ -119,11 +127,8 @@ class Rubylife
     end
   end
 
-  def display(world)
-    puts world.map {|row| row.join(" ")}.join("\n")
-  end
 
 end
 
 game = Rubylife.new
-game.make_world
+game.run

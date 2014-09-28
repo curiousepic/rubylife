@@ -1,9 +1,9 @@
 class Rules
   attr_reader :next_world
 
-  def initialize(world)
+  def initialize(width, height)
     @next_world =
-    Array.new(world.length, ".").map!{ Array.new(world[0].length, ".") }
+    Array.new(height, ".").map!{ Array.new(width, ".") }
   end
 
   def birth(r, c)
