@@ -10,7 +10,7 @@ class Rubylife
 
   def run(world)
     display(@earth.world)
-    puts "Generation: #{gen}"
+    puts "World Size: #{@earth.width}x#{@earth.height}  Generation: #{gen}"
     puts "(Enter) to step, (T)oggle a cell, (N)ew world, (Q)uit"
     input = gets.chomp.downcase
     if input == ""
