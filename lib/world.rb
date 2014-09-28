@@ -12,15 +12,17 @@ class World
   end
 
   def step
-    # call all rules
-    @rules.dummy_rule(@world)
-    # @rules.first_rule(@world)
-    # @rules.second_rule(@world)
-    # @rules.third_rule(@world)
-    # @rules.fourth_rule(@world)
-    # apply result of all rules to be the new world
+    @rules.conway(@world)
     @world = @rules.next_world
     @rules = Rules.new(@world)
+  end
+
+  def toggle(r,c)
+    if @world[r][c] == "."
+      @world[r][c] = "@"
+    else
+      @world [r][c] = "."
+    end
   end
 
 end

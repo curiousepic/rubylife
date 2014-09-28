@@ -6,15 +6,15 @@ class Rules
     Array.new(world.length, ".").map!{ Array.new(world[0].length, ".") }
   end
 
-  def birth(x, y)
-    @next_world[y][x] = "@"
+  def birth(r, c)
+    @next_world[r][c] = "@"
   end
 
-  def kill(x, y)
-    @next_world[y][x] = "."
+  def kill(r, c)
+    @next_world[r][c] = "."
   end
 
-  def count_neighbors(c,r,world)
+  def count_neighbors(r,c,world)
     neighbors = 0
     # make an array of adjacent cell states
     # adjacent cells are:
@@ -60,11 +60,35 @@ class Rules
     neighbors
   end
 
-  def dummy_rule(world)
-    if world[1][1] == "."
-      birth(1, 1)
-    else
-      kill(1, 1)
+  # def dummy_rule(world)
+  #   if world[1][1] == "."
+  #     birth(1, 1)
+  #   else
+  #     kill(1, 1)
+  #   end
+  # end
+
+  def conway(world)
+    row_index = 0
+    world.each do |r_array|
+      r_array.each_index do |c|
+        neighbors = count_neighbors(row_index, c, world)
+        if r_array[c] == "@"
+          if neighbors < 2
+            kill(row_index, c)
+          elsif neighbors > 3
+            kill(row_index, c)
+          else
+            birth(row_index, c)
+          end
+        end
+        if r_array[c] == "."
+          if neighbors == 3
+            birth(row_index, c)
+          end
+        end
+      end
+      row_index += 1
     end
   end
 

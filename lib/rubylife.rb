@@ -11,7 +11,7 @@ class Rubylife
   def run(world)
     display(@earth.world)
     puts "Generation: #{gen}"
-    puts "Hit Enter for next step, N for new world, Q to quit"
+    puts "Hit Enter for next step, L to set live cells, N for new world, Q to quit"
     input = gets.chomp.downcase
     if input == ""
       @gen += 1
