@@ -3,7 +3,7 @@ require_relative "world"
 class Rubylife
   attr_accessor :earth, :gen
   def make_world
-    @earth = World.new(8,6)
+    @earth = World.new(40,20)
     @gen = 0
     run(@earth)
   end
@@ -11,7 +11,7 @@ class Rubylife
   def run(world)
     display(@earth.world)
     puts "Generation: #{gen}"
-    puts "Hit Enter for next step, T to toggle cells, N for new world, Q to quit"
+    puts "(Enter) to step, (T)oggle cells, (N)ew world, (Q)uit"
     input = gets.chomp.downcase
     if input == ""
       @gen += 1
@@ -19,16 +19,22 @@ class Rubylife
     elsif input == "n"
       make_world
     elsif input == "t"
-      puts "Row?"
-      r = gets.to_i
       puts "Column?"
-      c = gets.to_i
+      c = (gets.to_i - 1)
+      puts "Row?"
+      r = (gets.to_i - 1)
       @earth.toggle(r,c)
       run(world)
     elsif input == "q"
-      exit
+      puts "Are you sure you want to quit? Y/N"
+      confirm = gets.chomp.downcase
+      if confirm == "y"
+        exit
+      else
+        run(world)
+      end
     else
-      exit
+      run(world)
     end
   end
 
@@ -38,5 +44,5 @@ class Rubylife
 
 end
 
-# game = Rubylife.new
-# game.make_world
+game = Rubylife.new
+game.make_world
