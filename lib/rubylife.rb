@@ -11,7 +11,7 @@ class Rubylife
   def run(world)
     display(@earth.world)
     puts "Generation: #{gen}"
-    puts "(Enter) to step, (T)oggle cells, (N)ew world, (Q)uit"
+    puts "(Enter) to step, (T)oggle a cell, (N)ew world, (Q)uit"
     input = gets.chomp.downcase
     if input == ""
       @gen += 1
@@ -20,6 +20,7 @@ class Rubylife
       puts "Custom size? Y/N"
       custom = gets.chomp.downcase
       if custom == "y"
+        puts "Remember to resize the window if the world is too big."
         puts "How wide?"
         width = (gets.to_i)
         puts "How tall?"

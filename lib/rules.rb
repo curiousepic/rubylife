@@ -17,18 +17,9 @@ class Rules
   def count_neighbors(r,c,world)
     neighbors = 0
     # make an array of adjacent cell states
-    # adjacent cells are:
-    #   subarray, index - 1
-    #   subarray, index + 1
-    #   subarray + 1, index - 1
-    #   subarray + 1, index
-    #   subarray + 1, index + 1
-    #   subarray - 1, index - 1
-    #   subarray - 1, index
-    #   subarray - 1, index + 1
     adjacent = Array.new(8, nil)
     # detect edges and add cells
-    if world[c-1] != nil
+    if c != 0
       adjacent << world[r][c-1]
     end
     if world[c+1] != nil
@@ -36,16 +27,16 @@ class Rules
     end
     if world[r+1] != nil
       adjacent << world[r+1][c]
-      if world[c-1] != nil
+      if c != 0
         adjacent << world[r+1][c-1]
       end
       if world[c+1] != nil
         adjacent << world[r+1][c+1]
       end
     end
-    if world[r-1] != nil
+    if r != 0
       adjacent << world[r-1][c]
-      if world[c-1] != nil
+      if c != 0
         adjacent << world[r-1][c-1]
       end
       if world[c+1] != nil
@@ -59,14 +50,6 @@ class Rules
     end
     neighbors
   end
-
-  # def dummy_rule(world)
-  #   if world[1][1] == "."
-  #     birth(1, 1)
-  #   else
-  #     kill(1, 1)
-  #   end
-  # end
 
   def conway(world)
     row_index = 0

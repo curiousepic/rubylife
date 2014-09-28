@@ -93,6 +93,10 @@ class RubylifeTest < MiniTest::Unit::TestCase
     [[".","@","@"],[".",".","@"],["@","@","@"]]) )
     assert ( 0 == rules.count_neighbors(2,1,
     [[".",".","."],[".",".","."],[".",".","."]]) )
+    assert ( 0 == rules.count_neighbors(2,1,
+    [[".",".","."],[".",".","."],[".",".","."]]) )
+    assert ( 3 == rules.count_neighbors(1,1,
+    [[".",".","@"],[".",".","@"],[".",".","@"]]) )
   end
 
 end
