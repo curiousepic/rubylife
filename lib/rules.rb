@@ -11,7 +11,7 @@ class Rules
   end
 
   def kill(r, c)
-    @next_world[r][c] = "."
+    @next_world[r][c] = "o"
   end
 
   def count_neighbors(r,c,world)
@@ -65,7 +65,7 @@ class Rules
             birth(row_index, c)
           end
         end
-        if r_array[c] == "."
+        if r_array[c] == "." || r_array[c] == "o"
           if neighbors == 3
             birth(row_index, c)
           end

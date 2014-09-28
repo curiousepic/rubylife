@@ -26,7 +26,8 @@ class Rubylife
     elsif input == "q"
       quit
     else
-      run(world)
+      puts "Invalid input"
+      run(@earth)
     end
   end
 
