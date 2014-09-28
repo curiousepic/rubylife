@@ -17,7 +17,19 @@ class Rubylife
       @gen += 1
       self.run(@earth.step)
     elsif input == "n"
-      make_world
+      puts "Custom size? Y/N"
+      custom = gets.chomp.downcase
+      if custom == "y"
+        puts "How wide?"
+        width = (gets.to_i)
+        puts "How tall?"
+        height = (gets.to_i)
+        @earth = World.new(width,height)
+        @gen = 0
+        run(@earth)
+      else
+        make_world
+      end
     elsif input == "t"
       puts "Column?"
       c = (gets.to_i - 1)
