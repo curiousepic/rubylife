@@ -1,7 +1,7 @@
 rubylife
 ========
 
-Our 2nd week project was a choice between creating Go Fish, or Conway's Game of Life.  I'm glad I chose the one I found more challenging.  The following is from a blog entry I made after finishing it:
+Our 2nd weekend project was a choice between creating Go Fish, or Conway's Game of Life.  I'm glad I chose the one I found more challenging.  The following is from a blog entry I made after finishing it:
 
 I’m aware that Life is something of a classic coding exercise, but for someone who had previously struggled with the deeper mathematical side of… well, everything in high school and college, it was still pretty daunting, and I really wasn’t expecting to actually get through it in 3 days, after learning only two weeks of Ruby.
 
