@@ -1,5 +1,8 @@
 rubylife
 ========
+![Alt text](https://cloud.githubusercontent.com/assets/5394429/5635232/4c910c9e-95b5-11e4-8e8d-0018dcc762f1.png
+)
+
 
 Our 2nd weekend project was a choice between creating Go Fish, or Conway's Game of Life.  I'm glad I chose the one I found more challenging.  The following is from a blog entry I made after finishing it:
 
@@ -10,5 +13,4 @@ I almost immediately hit a road block. After implementing the ability to toggle 
 Eventually, I realized implementing the rules themselves was simpler than I expected, and then… Life happened! (In a good way!)
 
 It still has an elusive bug, but I’m immensely pleased with myself. It seemed like the ratio between amount of work I was putting in and the impressiveness of the results followed an exponential curve.
-
 
